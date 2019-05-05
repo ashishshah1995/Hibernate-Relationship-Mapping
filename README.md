@@ -29,9 +29,9 @@
 
 2. Java annotations(modern, preferred)
 
-..1.Map class to database table
+...Map class to database table
 
-.. 2.Map fields to database column
+...Map fields to database column
 
 3. Develop java code to perform database operations
 
