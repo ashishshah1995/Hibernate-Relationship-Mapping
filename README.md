@@ -29,9 +29,9 @@
 
 2. Java annotations(modern, preferred)
 
-2.1 Map class to database table
+* Map class to database table
 
-2.2 Map fields to database column
+* Map fields to database column
 
 3. Develop java code to perform database operations
 
@@ -64,7 +64,7 @@
 
 # Project
 
-## hibernate project 
+## 1. hibernate project 
 
 In this project all the CRUD (Create, Read, Update , Delete) operations are performed
 
@@ -79,7 +79,7 @@ In this project all the CRUD (Create, Read, Update , Delete) operations are perf
 5. QueryStudentDemo class- querying the object
 
 
-## hb-01-one-to-one-uni (One to One mapping)
+## 2. hb-01-one-to-one-uni (One to One mapping)
 
 Instructor class mapped to Instructor_detail class  (unidirectional)
 
@@ -93,7 +93,7 @@ Instructor class mapped to Instructor_detail class  (unidirectional)
 
 4. Create main app
 
-## hb-02-one-to-one-bi (One to One mapping)
+## 3. hb-02-one-to-one-bi (One to One mapping)
 
 Instructor_detail class mapped to Instructor class  (bi-directional)
 
@@ -109,7 +109,7 @@ Instructor_detail class mapped to Instructor class  (bi-directional)
 
 4. Add @OneToOne annotation
 
-## hb-eager-vs-lazy
+## 4. hb-eager-vs-lazy
 
 1. While retrieving data **Eager loading** will retrieve everything while **Lazy loading** will retrieve on request
 
@@ -125,7 +125,7 @@ Instructor_detail class mapped to Instructor class  (bi-directional)
 
 2. Hibernate query langugae using HQL
 
-## hb-03-one-to-many (Many to One mapping - bidirectional)
+## 5. hb-03-one-to-many (Many to One mapping - bidirectional)
 
 Many to one (Many courses map to one instructor)
 
@@ -139,11 +139,11 @@ Many to one (Many courses map to one instructor)
 
 4. Create main application
 
-# hb-04-one-to-many-uni   (One to Many Unidirectional)
+## 6. hb-04-one-to-many-uni   (One to Many Unidirectional)
 
 A Course class can have many reviews
 
-# hb-05-many-to-many  
+## 7. hb-05-many-to-many  
 
 Course class can have many students and students class can sign for many courses
 
@@ -181,11 +181,12 @@ Eg 2- CASCADE Delete - If we delete Instructor then we also delete Instructor de
 
 4. @ManyToMany - FetchType.Lazy
 
+**JOIN table**  provides mapping between 2 tables
 
+**foreign key** is to preserve relationship between tables 
 
+**Referential Integrity**
 
-JOIN table - provides mapping between 2 tables
+1. It prevents operations that would destroy relationship. 
 
-
-
-Main purpose of foreign key is to preserve relationship between tables and Referential Integrity which is it prevents operations that would destroy relationship. Also ensure valid data is inserted into foregin key column, can only contain valid refrence to primary key in other table
+2. It ensures valid data is inserted into foregin key column, can only contain valid refrence to primary key in other table
