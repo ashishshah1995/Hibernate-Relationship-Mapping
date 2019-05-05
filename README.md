@@ -20,6 +20,7 @@
 # Hibernate development process
 
 1. Add hibernate config file
+
 2. Annotate java class 
 
 # Ways to map class to database table
@@ -53,15 +54,117 @@
 3. Short lived object, retrieved from SessionFactory
 
 
-Hibernate CRUD app- Create, Read, Update, Delete
+# Hibernate Advanced Mappings (Multiple tables and relationships between them)
 
-HQL - Hibernate query language
+1. One to One
 
-Hibernate Advanced Mappingss - Will have multiple tables and relationships between tables
-3 types
-1- 1 to 1
-2 -1 to many 
-3- many to many
+2. One to Many 
+
+3. Many to Many
+
+# Project
+
+## hibernate project 
+
+In this project all the CRUD (Create, Read, Update , Delete) operations are performed
+
+1. CreateStudentDemo class - Creation of an object 
+
+2. ReadStudentDemo class - Reading on the object
+
+3. UpdateStudentDemo class - Update the object 
+
+4. DeleteStudentDemo class - deletes an object 
+
+5. QueryStudentDemo class- querying the object
+
+
+## hb-01-one-to-one-uni (One to One mapping)
+
+Instructor class mapped to Instructor_detail class  (unidirectional)
+
+### Development process
+
+1. Define database tables
+
+2. Create InstructorDetail class
+
+3. Create instructor class
+
+4. Create main app
+
+## hb-02-one-to-one-bi (One to One mapping)
+
+Instructor_detail class mapped to Instructor class  (bi-directional)
+
+(On loading InstructionalDetail object we want to get assosciated Instructor)
+
+### Development process
+
+1. Make updates to InstructionalDetail class
+
+2. Add new field to refrence Instructor
+
+3. Add getter and setter methods for instructor
+
+4. Add @OneToOne annotation
+
+## hb-eager-vs-lazy
+
+1. While retrieving data **Eager loading** will retrieve everything while **Lazy loading** will retrieve on request
+
+2. Lazy loadiing is preferred instead of Eager loading to avoid performance issue. 
+
+3. We can define with FETCH type (eg fetch= FETCHType.LAZY). 
+
+4. For lazy loading data hibernate session needs to be open to fetch data on demand, if it is closed then throws an exception.
+
+### Options to retrieve lazy data
+
+1. session.get and call appropriate getter methods
+2. Hibernate query langugae using HQL
+
+## hb-03-one-to-many (Many to One mapping - bidirectional)
+
+Many to one (Many courses map to one instructor)
+
+### Development process
+
+1. Define database tables
+
+2. Create course class
+
+3. Update instructor class
+
+4. Create main application
+
+# hb-04-one-to-many-uni   (One to Many Unidirectional)
+
+A Course class can have many reviews
+
+# hb-05-many-to-many  
+
+Course classcan have many students and students class can sign for many courses
+
+
+
+Main purpose of foreign key is to preserve relationship between tables and Referential Integrity which is it prevents operations that would destroy relationship. Also ensure valid data is inserted into foregin key column, can only contain valid refrence to primary key in other table
+
+# Cascade Types (Eg Instructor to Instructor detail). By default no operations are cascaded
+
+1. Persist If entity is persisted/saved then related entity will aslo be saved
+
+2. Remove If entity is removed/delete then related entity will aslo be deleted
+
+3. Refresh If entity is refreshed then related entity will aslo be refresh
+
+4. Detach
+
+5. Merge
+
+6. ALL (all of above cascade type together)
+
+2- delete an instructor
 
 Cascade - apply same operations to related entity
 eg 1- if we save instructor then we also save instrctor detail
@@ -69,58 +172,19 @@ eg 2- CASCADE DELETE - if we delete instructor then we also delete instructor de
 
 No cascade in case of students to course and viceversa
 
-When we retrieve data there is idea of Eager(will retrieve everything) vs Lazy loading(will retrirvr on request)
 
-Hibernate 1 to 1 mapping
-Dev process
-1- Defien db tables
-2- create InstructorDetail class
-3- create instructor class
-4-create main app
 
-Main purpose of foreign key is to preserve relationship between tables and Referential Integrity which is it prevents operations that would destroy relationship. Also ensure valid data is inserted into foregin key column, can only contain valid refrence to primary key in other table
+# Default Fetch types
 
-CASCADE TYPE(Eg Instructor to Instructor detail). By default no operations are cascaded
-1- Persisit If entity is persisted/saved then related entity will aslo be saved
-2- Remove  If entity is removed/delete then related entity will aslo be deleted
-3- Refresh  If entity is refreshed then related entity will aslo be refresh
-4- detach
-5 Merge
-6- ALL - all of above cascae type together
+1. @OneToOne - FetchType.Eager
 
-2- delete an instructor
+2. @ManyToOne - FetchType.Eager
 
-Hibernate 1 to 1 bidirectional (If we load InstructionalDetail object then we want to get assosciated Instructor)
+3. @OneToMany - FetchType.Lazy
 
-Dev process
-1-Make updates to InstructionalDetail class
-2- add new field to refrence Instructor
-3-add gertter and setter methods for instructor
-4- add @OneToOne
+4. @ManyToMany - FetchType.Lazy
 
-HIBERNATE ONE TO MANY(An instructor can have many courses)
-Many to 1 (many courses map to 1 instructor)
 
-Dev process
-1- Prep work - define db tables
-2- create course class
-30 update instructor clas
-4-create main app
 
-Prefer lazy loadiing instead of eager loading to avoid performance issue. We can define with FETCH type (eg fetch= FETCHType.LAZY). For lazy data hibernate session needs to b open to fetch data on demand, if closed then throw exception.
-
-2 options to retrieve lazy data
-1-sessiom.get and call appropriate getter methods
-2- hibernate query langugae using HQL
-
-Default Fetch types
-1- @1to1 - FetchType.Eager
-2- mto1 Eager
-3- 1 to M Lazy
-4- M-m Lazy
-
-1 to Many Unidirection support(A course can have many reviews, if course is deleted then review shld also be deleted)
-
-Many 2 Many(Course can have many students and students can sign for many courses)
 
 JOIN table - provides mapping between 2 tables
