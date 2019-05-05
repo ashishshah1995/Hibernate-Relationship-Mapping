@@ -122,6 +122,7 @@ Instructor_detail class mapped to Instructor class  (bi-directional)
 ### Options to retrieve lazy data
 
 1. session.get and call appropriate getter methods
+
 2. Hibernate query langugae using HQL
 
 ## hb-03-one-to-many (Many to One mapping - bidirectional)
@@ -144,13 +145,19 @@ A Course class can have many reviews
 
 # hb-05-many-to-many  
 
-Course classcan have many students and students class can sign for many courses
+Course class can have many students and students class can sign for many courses
 
+**Cascade**  
 
+1. Applies same operations to related entity
 
-Main purpose of foreign key is to preserve relationship between tables and Referential Integrity which is it prevents operations that would destroy relationship. Also ensure valid data is inserted into foregin key column, can only contain valid refrence to primary key in other table
+2. By default no operations are cascaded
 
-# Cascade Types (Eg Instructor to Instructor detail). By default no operations are cascaded
+Eg 1- If we save Instructor then we also save Instrctor detail
+
+Eg 2- CASCADE Delete - If we delete Instructor then we also delete Instructor detail
+
+# Cascade Types. 
 
 1. Persist If entity is persisted/saved then related entity will aslo be saved
 
@@ -163,16 +170,6 @@ Main purpose of foreign key is to preserve relationship between tables and Refer
 5. Merge
 
 6. ALL (all of above cascade type together)
-
-2- delete an instructor
-
-Cascade - apply same operations to related entity
-eg 1- if we save instructor then we also save instrctor detail
-eg 2- CASCADE DELETE - if we delete instructor then we also delete instructor detail
-
-No cascade in case of students to course and viceversa
-
-
 
 # Default Fetch types
 
@@ -188,3 +185,7 @@ No cascade in case of students to course and viceversa
 
 
 JOIN table - provides mapping between 2 tables
+
+
+
+Main purpose of foreign key is to preserve relationship between tables and Referential Integrity which is it prevents operations that would destroy relationship. Also ensure valid data is inserted into foregin key column, can only contain valid refrence to primary key in other table
