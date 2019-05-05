@@ -180,10 +180,13 @@ Course class can have many students and students class can sign for many courses
 3. @OneToMany - FetchType.Lazy
 
 4. @ManyToMany - FetchType.Lazy
+___
 
 **JOIN table**  provides mapping between 2 tables
+___
 
 **foreign key** is to preserve relationship between tables 
+___
 
 **Referential Integrity**
 
