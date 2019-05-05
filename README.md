@@ -147,7 +147,7 @@ A Course class can have many reviews
 
 Course class can have many students and students class can sign for many courses
 
-**Cascade**  
+# Cascade  
 
 1. Applies same operations to related entity
 
@@ -157,7 +157,7 @@ Course class can have many students and students class can sign for many courses
 
    Eg 2- CASCADE Delete - If we delete Instructor then we also delete Instructor detail
 
-# Cascade Types. 
+## Cascade Types. 
 
 1. Persist If entity is persisted/saved then related entity will aslo be saved
 
