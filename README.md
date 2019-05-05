@@ -153,9 +153,9 @@ Course class can have many students and students class can sign for many courses
 
 2. By default no operations are cascaded
 
-.. Eg 1- If we save Instructor then we also save Instrctor detail
+   Eg 1- If we save Instructor then we also save Instrctor detail
 
-.. Eg 2- CASCADE Delete - If we delete Instructor then we also delete Instructor detail
+   Eg 2- CASCADE Delete - If we delete Instructor then we also delete Instructor detail
 
 # Cascade Types. 
 
